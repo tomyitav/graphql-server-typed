@@ -20,11 +20,12 @@ export class Logger extends AbstractLogger{
                 new (winston.transports.Console)({
                     colorize: true,
                 }),
-                // new winston.transports.DailyRotateFile({
-                //     filename: 'log.txt',
-                //     dirname: 'c:/logs',
-                //     datePattern: '.dd-MM-yyyy'
-                // })
+                new (winston.transports.File)({
+                    filename: 'log.txt',
+                    dirname: 'c:/logs',
+                    rotationFormat: '.dd-MM-yyyy',
+                    maxFiles: 25000
+                })
             ]
         });
     }
