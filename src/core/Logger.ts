@@ -27,7 +27,7 @@ export class Logger {
         });
     }
 
-    get getLogger(): LoggerInstance {
+    get logger(): LoggerInstance {
         return this._logger;
     }
 }

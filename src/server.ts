@@ -7,23 +7,18 @@ import {SubscriptionServer} from "subscriptions-transport-ws";
 import {printSchema} from "graphql/utilities/schemaPrinter";
 import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
-import {Injectable, Inject} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Logger} from "./core/Logger";
 
 @Injectable()
 export class Server {
 
-    private logger: Logger;
-    constructor(@Inject(Logger) logger: Logger) {
-        this.logger = logger;
-    }
+    constructor(private logger: Logger) {}
 
     public startServer() {
-        this.logger.getLogger.info('gggggg');
+        this.logger.logger.info('starting graphql server...');
         const GRAPHQL_PORT = 8080;
         const WS_PORT = 8090;
-
-// connectToDb();
 
         const graphQLServer = express().use('*', cors());
 
