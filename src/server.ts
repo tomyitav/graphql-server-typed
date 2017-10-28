@@ -1,4 +1,4 @@
-import * as express from 'express'
+import * as express from "express";
 import {graphqlExpress, graphiqlExpress} from "graphql-server-express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
@@ -8,12 +8,12 @@ import {printSchema} from "graphql/utilities/schemaPrinter";
 import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
 import {Injectable} from "@angular/core";
-import {Logger} from "./core/Logger";
+import {AbstractLogger} from "./core/AbstractLogger";
 
 @Injectable()
 export class Server {
 
-    constructor(private logger: Logger) {}
+    constructor(private logger: AbstractLogger) {}
 
     public startServer() {
         this.logger.logger.info('starting graphql server...');

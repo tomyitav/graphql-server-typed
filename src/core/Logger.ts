@@ -2,12 +2,14 @@ import {Injectable} from "@angular/core";
 import * as winston from 'winston'
 import * as rotate from 'winston-daily-rotate-file'
 import LoggerInstance = winston.LoggerInstance;
+import {AbstractLogger} from "./AbstractLogger";
 
 @Injectable()
-export class Logger {
+export class Logger extends AbstractLogger{
 
     private _logger: LoggerInstance;
     constructor() {
+        super();
         this.initializeLogger();
     }
 
