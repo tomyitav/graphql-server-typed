@@ -8,18 +8,19 @@ import {printSchema} from "graphql/utilities/schemaPrinter";
 import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
 import {Injectable} from "@angular/core";
-import {AbstractLogger} from "./core/AbstractLogger";
+import {AbstractLogger} from "./core/logger/AbstractLogger";
 import {Express} from "express-serve-static-core";
+import {AbstractSetting} from "./core/config/AbstractSetting";
 
 @Injectable()
 export class Server {
 
-    constructor(private logger: AbstractLogger) {}
+    constructor(private logger: AbstractLogger, private setting: AbstractSetting) {}
 
     public startServer(): void {
         this.logger.logger.info('starting graphql server...');
-        const GRAPHQL_PORT = 8080;
-        const WS_PORT = 8090;
+        const GRAPHQL_PORT = this.setting.config.server.port;
+        const WS_PORT = this.setting.config.server.wsPort;
 
         const graphQLServer = express().use('*', cors());
 
