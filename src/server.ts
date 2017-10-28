@@ -9,19 +9,28 @@ import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
 import {Injectable} from "@angular/core";
 import {AbstractLogger} from "./core/AbstractLogger";
+import {Express} from "express-serve-static-core";
 
 @Injectable()
 export class Server {
 
     constructor(private logger: AbstractLogger) {}
 
-    public startServer() {
+    public startServer(): void {
         this.logger.logger.info('starting graphql server...');
         const GRAPHQL_PORT = 8080;
         const WS_PORT = 8090;
 
         const graphQLServer = express().use('*', cors());
 
+        this.initRoutes(graphQLServer);
+
+        this.initializeGraphqlServer(graphQLServer, GRAPHQL_PORT);
+
+        this.initializeWS(WS_PORT);
+    }
+
+    private initRoutes(graphQLServer: Express): void {
         graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({
             schema,
             context: {}
@@ -35,22 +44,25 @@ export class Server {
             res.set('Content-Type', 'text/plain');
             res.send(printSchema(schema));
         });
+    }
 
-        graphQLServer.listen(GRAPHQL_PORT, () => console.log('server started'));
+    private async initializeGraphqlServer(graphQLServer: Express, GRAPHQL_PORT: number): Promise<void> {
+        await graphQLServer.listen(GRAPHQL_PORT);
+        this.logger.logger.info('Server started on port - ' + GRAPHQL_PORT);
+    }
 
-// WebSocket server for subscriptions
+    private async initializeWS(WS_PORT: number): Promise<void> {
         const websocketServer = createServer((request, response) => {
             response.writeHead(404);
             response.end();
         });
 
-        websocketServer.listen(WS_PORT, () => {
-            console.log('WS server is up');
-        });
+        await websocketServer.listen(WS_PORT);
+        this.logger.logger.info('WS server is up');
 
         const subscriptionServer = new SubscriptionServer(
             {
-                onConnect: async (connectionParams) => {
+                onConnect: async(connectionParams) => {
                     // Implement if you need to handle and manage connection
                 },
                 subscriptionManager: subscriptionManager

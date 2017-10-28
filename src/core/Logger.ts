@@ -1,8 +1,7 @@
 import {Injectable} from "@angular/core";
-import * as winston from 'winston'
-import * as rotate from 'winston-daily-rotate-file'
-import LoggerInstance = winston.LoggerInstance;
+import * as winston from "winston";
 import {AbstractLogger} from "./AbstractLogger";
+import LoggerInstance = winston.LoggerInstance;
 
 @Injectable()
 export class Logger extends AbstractLogger{
@@ -24,7 +23,8 @@ export class Logger extends AbstractLogger{
                     filename: 'log.txt',
                     dirname: 'c:/logs',
                     rotationFormat: '.dd-MM-yyyy',
-                    maxFiles: 25000
+                    maxFiles: 25,
+                    maxsize: 25000
                 })
             ]
         });
