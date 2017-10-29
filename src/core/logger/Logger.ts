@@ -2,12 +2,13 @@ import {Injectable} from "@angular/core";
 import * as winston from "winston";
 import {AbstractLogger} from "./AbstractLogger";
 import LoggerInstance = winston.LoggerInstance;
+import {AbstractSetting} from "../config/AbstractSetting";
 
 @Injectable()
 export class Logger extends AbstractLogger{
 
     private _logger: LoggerInstance;
-    constructor() {
+    constructor(private settings: AbstractSetting) {
         super();
         this.initializeLogger();
     }
@@ -20,8 +21,8 @@ export class Logger extends AbstractLogger{
                     colorize: true,
                 }),
                 new (winston.transports.File)({
-                    filename: 'log.txt',
-                    dirname: 'c:/logs',
+                    filename: this.settings.config.log.filename,
+                    dirname: this.settings.config.log.filedir,
                     rotationFormat: '.dd-MM-yyyy',
                     maxFiles: 25,
                     maxsize: 25000

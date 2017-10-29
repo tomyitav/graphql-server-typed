@@ -59,7 +59,7 @@ export class Server {
         });
 
         await websocketServer.listen(WS_PORT);
-        this.logger.logger.info('WS server is up');
+        this.logger.logger.info('WS server is up on port- ' + WS_PORT);
 
         const subscriptionServer = new SubscriptionServer(
             {
