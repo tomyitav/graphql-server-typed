@@ -31,7 +31,7 @@ The server will run on port 8080. You can change this by editing config file.
 ## Type generation using gql codegen
 
 ```
-npm generate
+npm run generate
 ```
 
 This will automatically generate types in types.d.ts file!
