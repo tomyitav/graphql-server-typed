@@ -7,7 +7,7 @@ import {SubscriptionServer} from "subscriptions-transport-ws";
 import {printSchema} from "graphql/utilities/schemaPrinter";
 import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
-import {Injectable} from "@angular/core";
+import {Injectable, ReflectiveInjector} from "@angular/core";
 import {AbstractLogger} from "./core/logger/AbstractLogger";
 import {Express} from "express-serve-static-core";
 import {AbstractSetting} from "./core/config/AbstractSetting";
@@ -17,24 +17,24 @@ export class Server {
 
     constructor(private logger: AbstractLogger, private setting: AbstractSetting) {}
 
-    public startServer(): void {
+    public startServer(injector: ReflectiveInjector): void {
         this.logger.logger.info('starting graphql server...');
         const GRAPHQL_PORT = this.setting.config.server.port;
         const WS_PORT = this.setting.config.server.wsPort;
 
         const graphQLServer = express().use('*', cors());
 
-        this.initRoutes(graphQLServer);
+        this.initRoutes(graphQLServer, injector);
 
         this.initializeGraphqlServer(graphQLServer, GRAPHQL_PORT);
 
         this.initializeWS(WS_PORT);
     }
 
-    private initRoutes(graphQLServer: Express): void {
+    private initRoutes(graphQLServer: Express, injector: ReflectiveInjector): void {
         graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({
             schema,
-            context: {}
+            context: {injector}
         }));
 
         graphQLServer.use('/graphiql', graphiqlExpress({

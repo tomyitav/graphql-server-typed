@@ -3,4 +3,4 @@ import {Server} from "./server";
 
 let server: Server;
 server = injector.get(Server);
-server.startServer();
+server.startServer(injector);

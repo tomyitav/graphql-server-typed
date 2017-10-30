@@ -1,9 +1,13 @@
+import {CarQueryArgs, Car} from "../../types";
+import {AbstractLogger} from "../../core/logger/AbstractLogger";
 const resolveFunctions = {
     Query: {
-        car (_, {name}){
+        car (_, args: CarQueryArgs, context) : Array<Car>{
+            let logger: AbstractLogger = context.injector.get(AbstractLogger);
+            logger.logger.info('Return all cars...');
             return [{
-                _id: "gggggggggggg",
-                name: "tomCar"
+                _id: "1234",
+                name: args.name || "sampleCar"
             }];
         }
 
