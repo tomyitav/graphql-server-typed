@@ -1,7 +1,6 @@
 import * as path from "path";
-import { makeExecutableSchema } from 'graphql-tools';
-import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
-import {GraphQLSchema} from "graphql";
+import {makeExecutableSchema} from "graphql-tools";
+import {fileLoader, mergeTypes, mergeResolvers} from "merge-graphql-schemas";
 
 const typesArray = fileLoader(path.join(__dirname, '../types'), { recursive: true });
 const resolversArray = fileLoader(path.join(__dirname, '../resolvers'));
