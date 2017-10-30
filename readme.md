@@ -22,7 +22,14 @@ npm install
 ## Starting the server
 
 ```
-npm start
+npm run tsc
+node dist\main.js
+```
+
+## Type generation using gql codegen
+
+```
+npm generate
 ```
 
 The server will run on port 8080. You can change this by editing config file.
