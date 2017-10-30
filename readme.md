@@ -70,5 +70,4 @@ is updated automatically.
 ## Connect to the server from client app
 
 See the following [example](https://github.com/tomyitav/apollo-angular-client-starter) on how to connect to the server using apollo-angular.
-The project demonstrates using Queries, Mutations and Subscriptions.
 
