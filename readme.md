@@ -26,13 +26,15 @@ npm run tsc
 node dist\main.js
 ```
 
+The server will run on port 8080. You can change this by editing config file.
+
 ## Type generation using gql codegen
 
 ```
 npm generate
 ```
 
-The server will run on port 8080. You can change this by editing config file.
+This will automatically generate types in types.d.ts file!
 
 ## Project structure
 
