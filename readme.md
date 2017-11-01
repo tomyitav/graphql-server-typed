@@ -3,7 +3,7 @@
 Create a fully configured, production ready graphql server, using
 
 + typescript
-+ Graphql code generetor
++ [graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
 + graphql-subscriptions
 + merge-graphql-schemas
 + Angular dependency injection
