@@ -1,5 +1,5 @@
 {
-  "name": "@tomyitav/graphql-server-typed",
+  "name": "tomyitav/graphql-server-typed",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
