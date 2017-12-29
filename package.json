@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/core": "^4.4.6",
+    "@angular/core": "5.0.1",
     "@types/express": "^4.0.38",
     "@types/lodash": "^4.14.80",
     "@types/node": "7.0.22",

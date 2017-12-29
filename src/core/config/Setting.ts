@@ -1,6 +1,8 @@
 import {AbstractSetting} from "./AbstractSetting";
 import {IConfig} from "./IConfig";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class Setting extends AbstractSetting {
 
     private settings: IConfig;
