@@ -1,13 +1,12 @@
-FROM risingstack/alpine:3.4-v6.9.4-4.2.0
+FROM node:latest
+WORKDIR /software/graphql-server
 
-ENV PORT 3001
+#Adding relevant folders to image
+ADD dist /software/graphql-server/dist
+ADD node_modules /software/graphql-server/dist/node_modules
 
-EXPOSE 3001
+WORKDIR /software/graphql-server/dist
 
-COPY package.json package.json
-RUN npm install
+CMD ["node", "main.js"]
 
-COPY . .
-RUN npm run build
-
-CMD ["node", "dist/"]defe
+MAINTAINER tomyitav@gmail.com

@@ -13,7 +13,7 @@ export class Setting extends AbstractSetting {
             },
             log: {
                 filename: "log.txt",
-                filedir: "c:/logs"
+                filedir: "."
             }
         }
     }
