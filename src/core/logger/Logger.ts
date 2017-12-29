@@ -23,7 +23,7 @@ export class Logger extends AbstractLogger{
                 new (winston.transports.File)({
                     filename: this.settings.config.log.filename,
                     dirname: this.settings.config.log.filedir,
-                    rotationFormat: '.dd-MM-yyyy',
+                    // rotationFormat: '.dd-MM-yyyy',
                     maxFiles: 25,
                     maxsize: 25000
                 })

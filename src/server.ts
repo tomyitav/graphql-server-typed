@@ -7,17 +7,19 @@ import {SubscriptionServer} from "subscriptions-transport-ws";
 import {printSchema} from "graphql/utilities/schemaPrinter";
 import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
-import {Injectable, ReflectiveInjector} from "@angular/core";
+import {Injectable, Injector} from "@angular/core";
 import {AbstractLogger} from "./core/logger/AbstractLogger";
 import {Express} from "express-serve-static-core";
 import {AbstractSetting} from "./core/config/AbstractSetting";
+import {AbstractCarsModel} from "./model/cars/AbstractCarsModel";
+import {AbstractTrainsModel} from "./model/trains/AbstractTrainsModel";
 
 @Injectable()
 export class Server {
 
     constructor(private logger: AbstractLogger, private setting: AbstractSetting) {}
 
-    public startServer(injector: ReflectiveInjector): void {
+    public startServer(injector: Injector) {
         this.logger.logger.info('starting graphql server...');
         const GRAPHQL_PORT = this.setting.config.server.port;
         const WS_PORT = this.setting.config.server.wsPort;
@@ -31,10 +33,13 @@ export class Server {
         this.initializeWS(WS_PORT);
     }
 
-    private initRoutes(graphQLServer: Express, injector: ReflectiveInjector): void {
+    private initRoutes(graphQLServer: Express, injector: Injector) {
         graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({
             schema,
-            context: {injector}
+            context: {
+                carsModel: injector.get(AbstractCarsModel),
+                trainsModel: injector.get(AbstractTrainsModel),
+            }
         }));
 
         graphQLServer.use('/graphiql', graphiqlExpress({
@@ -47,12 +52,12 @@ export class Server {
         });
     }
 
-    private async initializeGraphqlServer(graphQLServer: Express, GRAPHQL_PORT: number): Promise<void> {
+    private async initializeGraphqlServer(graphQLServer: Express, GRAPHQL_PORT: number) {
         await graphQLServer.listen(GRAPHQL_PORT);
         this.logger.logger.info('Server started on port - ' + GRAPHQL_PORT);
     }
 
-    private async initializeWS(WS_PORT: number): Promise<void> {
+    private async initializeWS(WS_PORT: number) {
         const websocketServer = createServer((request, response) => {
             response.writeHead(404);
             response.end();

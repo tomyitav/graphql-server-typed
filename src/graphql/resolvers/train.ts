@@ -1,9 +1,10 @@
 import {TrainQueryArgs, Train} from "../../types";
 import {AbstractTrainsModel} from "../../model/trains/AbstractTrainsModel";
+import {AppContext} from "../../interfaces/AppContext";
 const resolveFunctions = {
     Query: {
-        train (_, args: TrainQueryArgs, context): Array<Train>{
-            const trainsModel: AbstractTrainsModel = context.injector.get(AbstractTrainsModel);
+        train (_, args: TrainQueryArgs, context: AppContext): Array<Train>{
+            const trainsModel: AbstractTrainsModel = context.trainsModel;
             return trainsModel.getTrains(args.name);
         }
 

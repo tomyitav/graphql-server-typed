@@ -48,6 +48,7 @@
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-promise": "3.5.0",
     "mocha": "3.4.2",
+    "react-dom": "^15.6.0",
     "supertest": "3.0.0",
     "tsc": "1.20150623.0",
     "typescript": "2.3.3",
