@@ -1,4 +1,4 @@
-import {CarQueryArgs, Car} from "../../types";
+import {CarQueryArgs, Car, UpdateCarNameMutationArgs} from "../../types";
 import {AbstractCarsModel} from "../../model/cars/AbstractCarsModel";
 import {AppContext} from "../../interfaces/AppContext";
 const resolveFunctions = {
@@ -6,6 +6,13 @@ const resolveFunctions = {
         car (_, args: CarQueryArgs, context: AppContext) : Promise<Array<Car>>{
             const carsModel: AbstractCarsModel = context.carsModel;
             return carsModel.getCars(args.name);
+        }
+    },
+
+    Mutation: {
+        updateCarName(_, args: UpdateCarNameMutationArgs, context: AppContext): Promise<Car> {
+            const carsModel: AbstractCarsModel = context.carsModel;
+            return carsModel.updateCarName(args._id, args.newName);
         }
     }
 }

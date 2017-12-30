@@ -25,4 +25,17 @@ export class CarsModel extends AbstractCarsModel{
             }
         });
     }
+
+    public updateCarName(_id: string, newName: string): Promise<Car> {
+        return new Promise(resolve => {
+            for(let car of this.carList) {
+                if(car._id === _id) {
+                    car.name = newName;
+                    resolve(car);
+                    return;
+                }
+            }
+            resolve({});
+        })
+    }
 }

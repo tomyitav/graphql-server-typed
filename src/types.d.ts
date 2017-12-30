@@ -14,9 +14,17 @@ export interface Train {
   _id?: string; 
   name?: string; 
 }
+
+export interface Mutation {
+  updateCarName?: Car; 
+}
 export interface CarQueryArgs {
   name?: string; 
 }
 export interface TrainQueryArgs {
   name?: string; 
+}
+export interface UpdateCarNameMutationArgs {
+  _id: string; 
+  newName: string; 
 }
