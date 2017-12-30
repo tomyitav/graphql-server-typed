@@ -6,15 +6,14 @@ import {AbstractLogger} from "../../core/logger/AbstractLogger";
 @Injectable()
 export class CarsModel extends AbstractCarsModel{
 
+    private carList: [Car] = [{_id: "1234", name: "sampleCar1"},
+                              {_id: "1244", name: "sampleCar2"}]
     constructor(private logger: AbstractLogger) {
         super();
     }
 
-    public getCars(carName?: string): Array<Car> {
+    public getCars(carName?: string): Promise<Array<Car>> {
         this.logger.instance.info('Returning all cars...');
-        return [{
-            _id: "1234",
-            name: carName || "sampleCar",
-        }];
+        return new Promise(resolve => resolve(this.carList));
     }
 }
