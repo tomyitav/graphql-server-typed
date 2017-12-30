@@ -3,6 +3,7 @@ import * as winston from "winston";
 import {AbstractLogger} from "./AbstractLogger";
 import LoggerInstance = winston.LoggerInstance;
 import {AbstractSetting} from "../config/AbstractSetting";
+import * as DailyRotate from 'winston-daily-rotate-file'
 
 @Injectable()
 export class Logger extends AbstractLogger{
@@ -20,12 +21,12 @@ export class Logger extends AbstractLogger{
                 new (winston.transports.Console)({
                     colorize: true,
                 }),
-                new (winston.transports.File)({
+                new DailyRotate({
                     filename: this.settings.config.log.filename,
                     dirname: this.settings.config.log.filedir,
-                    // rotationFormat: '.dd-MM-yyyy',
+                    maxsize: 20971520, //20MB
                     maxFiles: 25,
-                    maxsize: 25000
+                    datePattern: '.dd-MM-yyyy'
                 })
             ]
         });

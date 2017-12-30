@@ -15,7 +15,7 @@ export class Setting extends AbstractSetting {
             },
             log: {
                 filename: "log.txt",
-                filedir: "."
+                filedir: "C:/logs/graphql-server-typed"
             }
         }
     }
