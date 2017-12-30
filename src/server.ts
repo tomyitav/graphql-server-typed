@@ -20,7 +20,7 @@ export class Server {
     constructor(private logger: AbstractLogger, private setting: AbstractSetting) {}
 
     public startServer(injector: Injector) {
-        this.logger.logger.info('starting graphql server...');
+        this.logger.instance.info('starting graphql server...');
         const GRAPHQL_PORT = this.setting.config.server.port;
         const WS_PORT = this.setting.config.server.wsPort;
 
@@ -54,7 +54,7 @@ export class Server {
 
     private async initializeGraphqlServer(graphQLServer: Express, GRAPHQL_PORT: number) {
         await graphQLServer.listen(GRAPHQL_PORT);
-        this.logger.logger.info('Server started on port - ' + GRAPHQL_PORT);
+        this.logger.instance.info('Server started on port - ' + GRAPHQL_PORT);
     }
 
     private async initializeWS(WS_PORT: number) {
@@ -64,7 +64,7 @@ export class Server {
         });
 
         await websocketServer.listen(WS_PORT);
-        this.logger.logger.info('WS server is up on port- ' + WS_PORT);
+        this.logger.instance.info('WS server is up on port- ' + WS_PORT);
 
         const subscriptionServer = new SubscriptionServer(
             {

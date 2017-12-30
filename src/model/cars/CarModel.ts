@@ -11,7 +11,7 @@ export class CarsModel extends AbstractCarsModel{
     }
 
     public getCars(carName?: string): Array<Car> {
-        this.logger.logger.info('Returning all cars...');
+        this.logger.instance.info('Returning all cars...');
         return [{
             _id: "1234",
             name: carName || "sampleCar",

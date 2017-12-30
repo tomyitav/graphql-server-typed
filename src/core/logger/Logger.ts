@@ -31,7 +31,7 @@ export class Logger extends AbstractLogger{
         });
     }
 
-    public get logger(): LoggerInstance {
+    public get instance(): LoggerInstance {
         return this._logger;
     }
 }
