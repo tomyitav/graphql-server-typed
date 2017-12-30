@@ -14,6 +14,15 @@ export class CarsModel extends AbstractCarsModel{
 
     public getCars(carName?: string): Promise<Array<Car>> {
         this.logger.instance.info('Returning all cars...');
-        return new Promise(resolve => resolve(this.carList));
+        return new Promise(resolve => {
+            let filteredCarsList;
+            if(carName) {
+                filteredCarsList = this.carList.filter(car => car.name === carName);
+                resolve(filteredCarsList);
+            }
+            else {
+                resolve(this.carList);
+            }
+        });
     }
 }
