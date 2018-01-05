@@ -22,7 +22,7 @@ npm install
 ## Starting the server
 
 ```
-npm run tsc
+npm run build
 node dist\main.js
 ```
 
@@ -35,6 +35,7 @@ npm run generate
 ```
 
 This will automatically generate types in types.d.ts file!
+generate command is executed in every build
 
 ## Project structure
 
