@@ -3,3 +3,4 @@ dist
 npm-debug.log
 .idea
 types.d.ts
+ts-files.txt
