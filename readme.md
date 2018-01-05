@@ -23,7 +23,7 @@ npm install
 
 ```
 npm run build
-node dist\main.js
+npm start
 ```
 
 The server will run on port 8080. You can change this by editing config file.
