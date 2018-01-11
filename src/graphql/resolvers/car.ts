@@ -1,4 +1,4 @@
-import {CarQueryArgs, Car, UpdateCarNameMutationArgs} from "../../types";
+import {CarQueryArgs, Car, UpdateCarNameMutationArgs} from "../../interfaces/types";
 import {AbstractCarsModel} from "../../model/cars/AbstractCarsModel";
 import {AppContext} from "../../interfaces/AppContext";
 const resolveFunctions = {

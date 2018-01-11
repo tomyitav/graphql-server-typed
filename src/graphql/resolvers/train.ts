@@ -1,4 +1,4 @@
-import {TrainQueryArgs, Train} from "../../types";
+import {TrainQueryArgs, Train} from "../../interfaces/types";
 import {AbstractTrainsModel} from "../../model/trains/AbstractTrainsModel";
 import {AppContext} from "../../interfaces/AppContext";
 const resolveFunctions = {

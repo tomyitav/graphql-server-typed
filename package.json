@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-schema": "rimraf ./dist/graphql/schema/ && dir /s /b \"src/graphql/types\" | findstr /e .ts > ts-files.txt && tsc ./src/graphql/schema/genereator-schema.ts --outDir ./dist/graphql/schema/ --lib esnext && tsc @ts-files.txt --outDir ./dist/graphql/types --lib esnext && del ts-files.txt",
-    "generate-ts": "gql-gen --template ts --out ./src/types.d.ts --export ./dist/graphql/schema/genereator-schema.js",
+    "generate-ts": "gql-gen --template ts --out ./src/interfaces/types.d.ts --export ./dist/graphql/schema/genereator-schema.js",
     "pregenerate": "npm run build-schema",
     "generate": "npm run generate-ts",
     "clean": "rimraf dist",

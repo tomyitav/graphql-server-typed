@@ -1,5 +1,5 @@
 import {AbstractCarsModel} from "./AbstractCarsModel";
-import {Car} from "../../types";
+import {Car} from "../../interfaces/types";
 import {Injectable} from "@angular/core";
 import {AbstractLogger} from "../../core/logger/AbstractLogger";
 

@@ -1,5 +1,5 @@
 import {AbstractTrainsModel} from "./AbstractTrainsModel";
-import {Train} from "../../types";
+import {Train} from "../../interfaces/types";
 import {Injectable} from "@angular/core";
 import {AbstractLogger} from "../../core/logger/AbstractLogger";
 
