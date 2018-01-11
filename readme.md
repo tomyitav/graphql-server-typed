@@ -68,6 +68,17 @@ So as your project grows - you can extend the schema by adding new type in types
 directory, and adding matching resolver file in resolvers directory. The schema
 is updated automatically.
 
+## Run server in production with Docker
+
+```
+npm run build
+```
+
+After npm building the project, go to project root directory, open shell and run:
+```
+docker build -t graphql-server .
+```
+
 ## Connect to the server from client app
 
 See the following [example](https://github.com/tomyitav/apollo-angular-client-starter) on how to connect to the server using apollo-angular.
