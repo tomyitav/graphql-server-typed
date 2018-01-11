@@ -4,6 +4,7 @@ import {AbstractLogger} from "./AbstractLogger";
 import LoggerInstance = winston.LoggerInstance;
 import {AbstractSetting} from "../config/AbstractSetting";
 import * as DailyRotate from 'winston-daily-rotate-file'
+import * as fs from 'fs';
 
 @Injectable()
 export class Logger extends AbstractLogger{
@@ -11,7 +12,16 @@ export class Logger extends AbstractLogger{
     private _logger: LoggerInstance;
     constructor(private settings: AbstractSetting) {
         super();
+        this.checkForLogFileDir();
         this.initializeLogger();
+    }
+
+    private checkForLogFileDir() {
+        const dir = this.settings.config.log.filedir;
+
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        }
     }
 
     private initializeLogger() {
