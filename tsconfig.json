@@ -5,7 +5,12 @@
     "outDir": "dist",
     "sourceMap": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext.asynciterable"
+    ]
   },
   "files": [
     "./node_modules/@types/mocha/index.d.ts",
