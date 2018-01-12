@@ -16,6 +16,10 @@ export class Logger extends AbstractLogger{
         this.initializeLogger();
     }
 
+    public get instance(): LoggerInstance {
+        return this._logger;
+    }
+
     private checkForLogFileDir() {
         const dir = this.settings.config.log.filedir;
 
@@ -40,9 +44,5 @@ export class Logger extends AbstractLogger{
                 })
             ]
         });
-    }
-
-    public get instance(): LoggerInstance {
-        return this._logger;
     }
 }
