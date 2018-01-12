@@ -3,9 +3,9 @@ import {graphqlExpress, graphiqlExpress} from "graphql-server-express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
 import {createServer} from "http";
-import {SubscriptionServer} from "subscriptions-transport-ws";
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { execute, subscribe } from 'graphql';
 import {printSchema} from "graphql/utilities/schemaPrinter";
-import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
 import {Injectable, Injector} from "@angular/core";
 import {AbstractLogger} from "./core/logger/AbstractLogger";
@@ -13,6 +13,7 @@ import {Express} from "express-serve-static-core";
 import {AbstractSetting} from "./core/config/AbstractSetting";
 import {AbstractCarsModel} from "./model/cars/AbstractCarsModel";
 import {AbstractTrainsModel} from "./model/trains/AbstractTrainsModel";
+import {AbstractPubsubManager} from "./graphql/subscriptions/AbstractPubsubManager";
 
 @Injectable()
 export class Server {
@@ -66,17 +67,16 @@ export class Server {
         await websocketServer.listen(WS_PORT);
         this.logger.instance.info('WS server is up on port- ' + WS_PORT);
 
-        const subscriptionServer = new SubscriptionServer(
+        const subscriptionServer = SubscriptionServer.create(
             {
-                onConnect: async(connectionParams) => {
-                    // Implement if you need to handle and manage connection
-                },
-                subscriptionManager: subscriptionManager
+                schema,
+                execute,
+                subscribe,
             },
             {
                 server: websocketServer,
-                path: '/'
-            }
+                path: '/graphql',
+            },
         );
     }
 }

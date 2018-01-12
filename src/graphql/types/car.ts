@@ -13,6 +13,10 @@ type Mutation {
   updateCarName(_id: String!, newName: String!): Car
 }
 
+type Subscription {
+  carChanged: Car
+}
+
 `;
 
 export default schema;
