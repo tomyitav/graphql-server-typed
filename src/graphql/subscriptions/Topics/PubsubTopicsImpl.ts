@@ -1,6 +1,7 @@
 import {PubsubTopics} from "./PubsubTopics";
 const Topics: PubsubTopics = {
-    CAR_CHANGED_TOPIC: "car_changed"
+    CAR_CHANGED_TOPIC: "car_changed",
+    TRAIN_CHANGED_TOPIC: "train_changed"
 }
 
 export default Topics
