@@ -10,8 +10,8 @@ import {AbstractCarsModel} from "../model/cars/AbstractCarsModel";
 import {TrainsModel} from "../model/trains/TrainsModel";
 import {AbstractTrainsModel} from "../model/trains/AbstractTrainsModel";
 import {Injector} from "@angular/core";
-import {AbstractPubsubManager} from "../graphql/subscriptions/AbstractPubsubManager";
-import {PubsubManager} from "../graphql/subscriptions/PubsubManager";
+import {AbstractPubsubManager} from "../graphql/subscriptions/Pubsub/AbstractPubsubManager";
+import {PubsubManager} from "../graphql/subscriptions/Pubsub/PubsubManager";
 
 let injector: Injector = Injector.create([
     {provide: AbstractLogger, useFactory: getLogger, deps: [AbstractSetting]},

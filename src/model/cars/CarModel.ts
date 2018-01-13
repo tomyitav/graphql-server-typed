@@ -2,7 +2,8 @@ import {AbstractCarsModel} from "./AbstractCarsModel";
 import {Car} from "../../interfaces/types";
 import {Injectable} from "@angular/core";
 import {AbstractLogger} from "../../core/logger/AbstractLogger";
-import {AbstractPubsubManager} from "../../graphql/subscriptions/AbstractPubsubManager";
+import {AbstractPubsubManager} from "../../graphql/subscriptions/Pubsub/AbstractPubsubManager";
+import Topics from "../../graphql/subscriptions/Topics/PubsubTopicsImpl";
 
 @Injectable()
 export class CarsModel extends AbstractCarsModel{
@@ -32,7 +33,7 @@ export class CarsModel extends AbstractCarsModel{
             for(let car of this.carList) {
                 if(car._id === _id) {
                     car.name = newName;
-                    this.pubsubManager.publish(this.pubsubManager.topics.CAR_CHANGED_TOPIC, {carChanged: car});
+                    this.pubsubManager.publish(Topics.CAR_CHANGED_TOPIC, {carChanged: car});
                     resolve(car);
                     return;
                 }

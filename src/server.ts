@@ -13,7 +13,7 @@ import {Express} from "express-serve-static-core";
 import {AbstractSetting} from "./core/config/AbstractSetting";
 import {AbstractCarsModel} from "./model/cars/AbstractCarsModel";
 import {AbstractTrainsModel} from "./model/trains/AbstractTrainsModel";
-import {AbstractPubsubManager} from "./graphql/subscriptions/AbstractPubsubManager";
+import {AbstractPubsubManager} from "./graphql/subscriptions/Pubsub/AbstractPubsubManager";
 
 @Injectable()
 export class Server {

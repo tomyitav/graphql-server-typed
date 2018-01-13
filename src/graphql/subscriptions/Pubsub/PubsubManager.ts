@@ -1,8 +1,9 @@
-import { PubSub } from 'graphql-subscriptions';
+import {PubSub} from "graphql-subscriptions";
 import {Injectable} from "@angular/core";
 import {AbstractPubsubManager} from "./AbstractPubsubManager";
-import {AbstractLogger} from "../../core/logger/AbstractLogger";
-import { pubsub } from "./PubsubInstance";
+import {AbstractLogger} from "../../../core/logger/AbstractLogger";
+import {pubsub} from "./PubsubInstance";
+import {TopicName} from "../Topics/PubsubTopics";
 
 @Injectable()
 export class PubsubManager extends AbstractPubsubManager {
@@ -13,14 +14,8 @@ export class PubsubManager extends AbstractPubsubManager {
         this.pubsub = pubsub;
     }
 
-    public publish(topic: string, entity: any) {
+    public publish(topic: TopicName, entity: any) {
         this.logger.instance.info('Publishing on topic- ' + topic);
         this.pubsub.publish(topic, entity);
-    }
-
-    public get topics() {
-        return {
-            CAR_CHANGED_TOPIC: 'car_changed'
-        }
     }
 }
