@@ -80,6 +80,8 @@ After npm building the project, go to project root directory, open shell and run
 docker build -t graphql-server .
 ```
 
+Instructions about running the container are available [here](https://hub.docker.com/r/tomyitav/graphql-server-typed/)
+
 ## Connect to the server from client app
 
 See the following [example](https://github.com/tomyitav/apollo-angular-client-starter) on how to connect to the server using apollo-angular.
