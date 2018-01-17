@@ -45,6 +45,7 @@ export class Server {
 
         graphQLServer.use('/graphiql', graphiqlExpress({
             endpointURL: '/graphql',
+            subscriptionsEndpoint: `ws://localhost:8090/subscriptions`
         }));
 
         graphQLServer.use('/schema', (req, res) => {
@@ -75,7 +76,7 @@ export class Server {
             },
             {
                 server: websocketServer,
-                path: '/graphql',
+                path: '/subscriptions',
             },
         );
     }
