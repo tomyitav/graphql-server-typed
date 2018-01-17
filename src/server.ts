@@ -3,8 +3,8 @@ import {graphqlExpress, graphiqlExpress} from "graphql-server-express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
 import {createServer} from "http";
-import { SubscriptionServer } from 'subscriptions-transport-ws';
-import { execute, subscribe } from 'graphql';
+import {SubscriptionServer} from "subscriptions-transport-ws";
+import {execute, subscribe} from "graphql";
 import {printSchema} from "graphql/utilities/schemaPrinter";
 import schema from "./graphql/schema/schema";
 import {Injectable, Injector} from "@angular/core";
@@ -13,7 +13,6 @@ import {Express} from "express-serve-static-core";
 import {AbstractSetting} from "./core/config/AbstractSetting";
 import {AbstractCarsModel} from "./model/cars/AbstractCarsModel";
 import {AbstractTrainsModel} from "./model/trains/AbstractTrainsModel";
-import {AbstractPubsubManager} from "./graphql/subscriptions/Pubsub/AbstractPubsubManager";
 
 @Injectable()
 export class Server {
@@ -35,6 +34,7 @@ export class Server {
     }
 
     private initRoutes(graphQLServer: Express, injector: Injector) {
+        const WS_PORT = this.setting.config.server.wsPort;
         graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({
             schema,
             context: {
@@ -45,7 +45,7 @@ export class Server {
 
         graphQLServer.use('/graphiql', graphiqlExpress({
             endpointURL: '/graphql',
-            subscriptionsEndpoint: `ws://localhost:8090/subscriptions`
+            subscriptionsEndpoint: `ws://localhost:${WS_PORT}/subscriptions`
         }));
 
         graphQLServer.use('/schema', (req, res) => {
