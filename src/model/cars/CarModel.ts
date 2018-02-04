@@ -8,8 +8,8 @@ import Topics from "../../graphql/subscriptions/Topics/PubsubTopicsImpl";
 @Injectable()
 export class CarsModel extends AbstractCarsModel{
 
-    private carList: [Car] = [{_id: "1234", name: "sampleCar1"},
-                              {_id: "1244", name: "sampleCar2"}]
+    private carList: Car[] = [{_id: "1234", name: "sampleCar1"},
+                              {_id: "1244", name: "sampleCar2"}];
     constructor(private logger: AbstractLogger, private pubsubManager: AbstractPubsubManager) {
         super();
     }
