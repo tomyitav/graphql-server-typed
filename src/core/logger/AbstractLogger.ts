@@ -1,6 +1,5 @@
 import * as winston from 'winston';
-import LoggerInstance = winston.LoggerInstance;
 
 export abstract class AbstractLogger {
-    public abstract get instance(): LoggerInstance;
+    public abstract get instance(): winston.LoggerInstance;
 }
