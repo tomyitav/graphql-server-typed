@@ -11,7 +11,6 @@ import {TrainsModel} from "../model/trains/TrainsModel";
 import {AbstractTrainsModel} from "../model/trains/AbstractTrainsModel";
 import {AbstractPubsubManager} from "../graphql/subscriptions/Pubsub/AbstractPubsubManager";
 import {PubsubManager} from "../graphql/subscriptions/Pubsub/PubsubManager";
-import 'reflect-metadata';
 import {Injector, ReflectiveInjector} from 'injection-js';
 
 let injector: Injector = ReflectiveInjector.resolveAndCreate([
