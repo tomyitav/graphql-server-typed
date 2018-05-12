@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
 import * as winston from "winston";
 import {AbstractLogger} from "./AbstractLogger";
 import LoggerInstance = winston.LoggerInstance;
 import {AbstractSetting} from "../config/AbstractSetting";
 import * as DailyRotate from 'winston-daily-rotate-file'
 import * as fs from 'fs';
+import {Injectable} from "injection-js";
 
 @Injectable()
 export class Logger extends AbstractLogger{

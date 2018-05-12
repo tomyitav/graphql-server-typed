@@ -1,7 +1,7 @@
 import {AbstractTrainsModel} from "./AbstractTrainsModel";
 import {Train} from "../../interfaces/types";
-import {Injectable} from "@angular/core";
 import {AbstractLogger} from "../../core/logger/AbstractLogger";
+import {Injectable} from "injection-js";
 
 @Injectable()
 export class TrainsModel extends AbstractTrainsModel{

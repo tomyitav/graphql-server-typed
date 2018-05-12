@@ -7,12 +7,14 @@ import {SubscriptionServer} from "subscriptions-transport-ws";
 import {execute, subscribe} from "graphql";
 import {printSchema} from "graphql/utilities/schemaPrinter";
 import schema from "./graphql/schema/schema";
-import {Injectable, Injector} from "@angular/core";
 import {AbstractLogger} from "./core/logger/AbstractLogger";
 import {Express} from "express-serve-static-core";
 import {AbstractSetting} from "./core/config/AbstractSetting";
-import {AbstractCarsModel} from "./model/cars/AbstractCarsModel";
+import {AbstractCarsModel} from "./model/cars/AbstractCarsModel";;
 import {AbstractTrainsModel} from "./model/trains/AbstractTrainsModel";
+import {AbstractPubsubManager} from "./graphql/subscriptions/Pubsub/AbstractPubsubManager";
+import {AppContext} from "./interfaces/AppContext";
+import {Injectable, Injector} from "injection-js";
 
 @Injectable()
 export class Server {
@@ -23,24 +25,26 @@ export class Server {
         this.logger.instance.info('starting graphql server...');
         const GRAPHQL_PORT = this.setting.config.server.port;
         const WS_PORT = this.setting.config.server.wsPort;
-
         const graphQLServer = express().use('*', cors());
-
-        this.initRoutes(graphQLServer, injector);
-
+        const context: AppContext = this.getAppContext(injector);
+        this.initRoutes(graphQLServer, context);
         this.initializeGraphqlServer(graphQLServer, GRAPHQL_PORT);
-
-        this.initializeWS(WS_PORT);
+        this.initializeWS(WS_PORT, context);
     }
 
-    private initRoutes(graphQLServer: Express, injector: Injector) {
+    private getAppContext(injector: Injector): AppContext {
+        return {
+            carsModel: injector.get(AbstractCarsModel),
+            trainsModel: injector.get(AbstractTrainsModel),
+            pubsubManager: injector.get(AbstractPubsubManager),
+        }
+    }
+
+    private initRoutes(graphQLServer: Express, context: AppContext) {
         const WS_PORT = this.setting.config.server.wsPort;
         graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({
             schema,
-            context: {
-                carsModel: injector.get(AbstractCarsModel),
-                trainsModel: injector.get(AbstractTrainsModel),
-            }
+            context
         }));
 
         graphQLServer.use('/graphiql', graphiqlExpress({
@@ -59,7 +63,7 @@ export class Server {
         this.logger.instance.info('Server started on port - ' + GRAPHQL_PORT);
     }
 
-    private async initializeWS(WS_PORT: number) {
+    private async initializeWS(WS_PORT: number, context: AppContext) {
         const websocketServer = createServer((request, response) => {
             response.writeHead(404);
             response.end();
@@ -73,6 +77,7 @@ export class Server {
                 schema,
                 execute,
                 subscribe,
+                onConnect: () => context,
             },
             {
                 server: websocketServer,

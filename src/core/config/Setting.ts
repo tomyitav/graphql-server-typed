@@ -1,7 +1,7 @@
 import {AbstractSetting} from "./AbstractSetting";
 import {IConfig} from "./IConfig";
-import {Injectable} from "@angular/core";
 import * as path from 'path'
+import {Injectable} from "injection-js";
 
 @Injectable()
 export class Setting extends AbstractSetting {

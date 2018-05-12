@@ -1,9 +1,9 @@
 import {AbstractCarsModel} from "./AbstractCarsModel";
 import {Car} from "../../interfaces/types";
-import {Injectable} from "@angular/core";
 import {AbstractLogger} from "../../core/logger/AbstractLogger";
 import {AbstractPubsubManager} from "../../graphql/subscriptions/Pubsub/AbstractPubsubManager";
 import Topics from "../../graphql/subscriptions/Topics/PubsubTopicsImpl";
+import {Injectable} from "injection-js";
 
 @Injectable()
 export class CarsModel extends AbstractCarsModel{

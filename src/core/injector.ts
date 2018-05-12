@@ -9,17 +9,18 @@ import {CarsModel} from "../model/cars/CarModel";
 import {AbstractCarsModel} from "../model/cars/AbstractCarsModel";
 import {TrainsModel} from "../model/trains/TrainsModel";
 import {AbstractTrainsModel} from "../model/trains/AbstractTrainsModel";
-import {Injector} from "@angular/core";
 import {AbstractPubsubManager} from "../graphql/subscriptions/Pubsub/AbstractPubsubManager";
 import {PubsubManager} from "../graphql/subscriptions/Pubsub/PubsubManager";
+import 'reflect-metadata';
+import {Injector, ReflectiveInjector} from 'injection-js';
 
-let injector: Injector = Injector.create([
-    {provide: AbstractLogger, useClass: Logger, deps: [AbstractSetting]},
-    {provide: AbstractSetting, useClass: Setting, deps: []},
-    {provide: AbstractCarsModel, useClass: CarsModel, deps: [AbstractLogger, AbstractPubsubManager]},
-    {provide: AbstractTrainsModel, useClass: TrainsModel, deps: [AbstractLogger]},
-    {provide: AbstractPubsubManager, useClass: PubsubManager, deps: [AbstractLogger]},
-    {provide: Server, useClass: Server, deps: [AbstractLogger, AbstractSetting]}
+let injector: Injector = ReflectiveInjector.resolveAndCreate([
+    {provide: AbstractLogger, useClass: Logger},
+    {provide: AbstractSetting, useClass: Setting},
+    {provide: AbstractCarsModel, useClass: CarsModel},
+    {provide: AbstractTrainsModel, useClass: TrainsModel},
+    {provide: AbstractPubsubManager, useClass: PubsubManager},
+    {provide: Server, useClass: Server}
     ]);
 
 export default injector;
