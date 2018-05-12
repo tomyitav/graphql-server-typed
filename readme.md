@@ -6,7 +6,7 @@ Create a fully configured, production ready graphql server, using
 + [graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
 + graphql-subscriptions
 + merge-graphql-schemas
-+ Angular dependency injection
++ Dependency injection with `injection-js`
 
 This project demonstrates how to generate typescript types from graphql schema, using Graphql code generetor library.
 
