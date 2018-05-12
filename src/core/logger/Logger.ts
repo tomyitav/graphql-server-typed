@@ -16,8 +16,8 @@ export class Logger extends AbstractLogger{
         this.initializeLogger();
     }
 
-    public get instance(): LoggerInstance {
-        return this._logger;
+    log(level: string, message: string) {
+        this._logger.log(level.toLowerCase(), message);
     }
 
     private checkForLogFileDir() {
