@@ -9,18 +9,15 @@ import {CarsModel} from "../model/cars/CarModel";
 import {AbstractCarsModel} from "../model/cars/AbstractCarsModel";
 import {TrainsModel} from "../model/trains/TrainsModel";
 import {AbstractTrainsModel} from "../model/trains/AbstractTrainsModel";
-import {AbstractPubsubManager} from "../graphql/subscriptions/Pubsub/manager/AbstractPubsubManager";
-import {PubsubManager} from "../graphql/subscriptions/Pubsub/manager/PubsubManager";
+import {AbstractPubsubManager} from "../graphql/subscriptions/Pubsub/AbstractPubsubManager";
+import {PubsubManager} from "../graphql/subscriptions/Pubsub/PubsubManager";
 import {Injector, ReflectiveInjector} from 'injection-js';
-import {AbstractPubsubFactory} from "../graphql/subscriptions/Pubsub/factory/AbstractPubsubFactory";
-import {PubsubFactory} from "../graphql/subscriptions/Pubsub/factory/PubsubFactory";
 
 let injector: Injector = ReflectiveInjector.resolveAndCreate([
     {provide: AbstractLogger, useClass: Logger},
     {provide: AbstractSetting, useClass: Setting},
     {provide: AbstractCarsModel, useClass: CarsModel},
     {provide: AbstractTrainsModel, useClass: TrainsModel},
-    {provide: AbstractPubsubFactory, useClass: PubsubFactory},
     {provide: AbstractPubsubManager, useClass: PubsubManager},
     {provide: Server, useClass: Server}
     ]);
