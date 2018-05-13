@@ -13,6 +13,6 @@ export class PubsubManager extends AbstractPubsubManager {
 
     public publish(topic: TopicName, entity: any) {
         this.logger.info('Publishing on topic- ' + topic);
-        this.pubsub.publish(topic, entity);
+        super.publish(topic, entity);
     }
 }

@@ -13,5 +13,7 @@ export abstract class AbstractPubsubManager {
         return this.pubsub;
     }
 
-    public abstract publish(topic: TopicName, entity: any);
+    public publish(topic: TopicName, entity: any) {
+        this.getPubSub().publish(topic, entity);
+    }
 }
