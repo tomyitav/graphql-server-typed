@@ -1,7 +1,7 @@
 import {AbstractCarsModel} from "./AbstractCarsModel";
 import {Car} from "../../interfaces/types";
 import {AbstractLogger} from "../../core/logger/AbstractLogger";
-import {AbstractPubsubManager} from "../../graphql/subscriptions/Pubsub/AbstractPubsubManager";
+import {AbstractPubsubManager} from "../../graphql/subscriptions/Pubsub/manager/AbstractPubsubManager";
 import Topics from "../../graphql/subscriptions/Topics/PubsubTopicsImpl";
 import {Injectable} from "injection-js";
 

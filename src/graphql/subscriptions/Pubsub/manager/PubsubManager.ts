@@ -1,18 +1,14 @@
-import {PubSub} from "graphql-subscriptions";
 import {AbstractPubsubManager} from "./AbstractPubsubManager";
-import {AbstractLogger} from "../../../core/logger/AbstractLogger";
-import {TopicName} from "../Topics/PubsubTopics";
+import {AbstractLogger} from "../../../../core/logger/AbstractLogger";
+import {TopicName} from "../../Topics/PubsubTopics";
 import {Injectable} from "injection-js";
+import {AbstractPubsubFactory} from "../factory/AbstractPubsubFactory";
 
 @Injectable()
 export class PubsubManager extends AbstractPubsubManager {
 
-    constructor(private logger: AbstractLogger) {
-        super();
-    }
-
-    public getPubSub(): PubSub {
-        return this.pubsub;
+    constructor(protected pubsubFactory: AbstractPubsubFactory, private logger: AbstractLogger) {
+        super(pubsubFactory);
     }
 
     public publish(topic: TopicName, entity: any) {
