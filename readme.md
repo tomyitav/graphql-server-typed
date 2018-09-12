@@ -22,7 +22,7 @@ npm install
 ## Starting the server
 
 ```
-npm run build
+npm run build:dev
 npm start
 ```
 
