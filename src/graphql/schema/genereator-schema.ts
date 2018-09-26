@@ -1,6 +1,6 @@
 import * as path from 'path';
 import {makeExecutableSchema} from "graphql-tools";
-import {fileLoader, mergeTypes, mergeResolvers} from "merge-graphql-schemas";
+import {fileLoader, mergeTypes} from "merge-graphql-schemas";
 
 const types = mergeTypes(fileLoader(path.join(__dirname, '../types'), {recursive: true}));
 export const schema = makeExecutableSchema({
