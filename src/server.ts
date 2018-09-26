@@ -78,7 +78,7 @@ export class Server {
                 execute,
                 subscribe,
                 onConnect: () => context,
-            },
+            } as any ,
             {
                 server: websocketServer,
                 path: '/subscriptions',
