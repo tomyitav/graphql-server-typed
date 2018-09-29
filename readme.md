@@ -82,6 +82,10 @@ docker build -t graphql-server .
 
 Instructions about running the container are available [here](https://hub.docker.com/r/tomyitav/graphql-server-typed/)
 
+## Run server as AWS lambda
+
+See the following [project](https://github.com/tomyitav/apollo-typed-lambda) for setting up aws lambda integration
+
 ## Connect to the server from client app
 
 See the following [example](https://github.com/tomyitav/apollo-angular-client-starter) on how to connect to the server using apollo-angular.
