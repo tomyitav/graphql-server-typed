@@ -29,11 +29,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-push": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.ts": ["prettier --write", "git add"]
+    "*.ts": ["prettier --write && tslint --fix", "git add"]
   },
   "keywords": [],
   "author": "",
