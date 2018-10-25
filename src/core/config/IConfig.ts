@@ -1,14 +1,14 @@
 export interface IConfig {
-    server: ServerConfig,
-    log: LoggerConfig
+	server: IServerConfig;
+	log: ILoggerConfig;
 }
 
-interface ServerConfig {
-    port: number,
-    wsPort: number
+interface IServerConfig {
+	port: number;
+	wsPort: number;
 }
 
-interface LoggerConfig {
-    filename: string,
-    filedir: string
+interface ILoggerConfig {
+	filename: string;
+	filedir: string;
 }
