@@ -34,7 +34,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["npm run alon", "git add"]
+    "*.ts": ["tslint --fix", "git add"]
   },
   "keywords": [],
   "author": "",
