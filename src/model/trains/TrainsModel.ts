@@ -12,8 +12,6 @@ export class TrainsModel extends AbstractTrainsModel {
 	public getTrains(name?: string): Train[] {
 		this.logger.info('Returning all trains...');
 
-		const a = 8;
-
 		return [
 			{
 				_id: '1234',
