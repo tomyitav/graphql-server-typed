@@ -21,8 +21,7 @@
     "pregenerate:docker": "npm run build-schema:docker",
     "generate:docker": "npm run generate-ts",
     "prebuild:docker": "npm run clean && npm run generate:docker",
-    "build:docker": "npm run tsc"
-    "tsc": "tsc",
+    "build:docker": "npm run tsc",
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
@@ -34,7 +33,10 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["npm run precommit", "git add"]
+    "*.ts": [
+      "npm run precommit",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
