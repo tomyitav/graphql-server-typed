@@ -12,7 +12,8 @@ export class TrainsModel extends AbstractTrainsModel {
 	public getTrains(name?: string): Train[] {
 		this.logger.info('Returning all trains...');
 
-		let a 				= 5;
+		const a 				= 5
+
 
 		return [
 			{
