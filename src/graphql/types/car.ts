@@ -19,6 +19,3 @@ type Subscription {
 `;
 
 export default schema;
-
-
-

@@ -25,15 +25,15 @@
     "tsc": "tsc",
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
     "prettier": "prettier --write \"src/**/*.ts\"",
-    "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged"
-      }
-    },
-    "lint-staged": {
-      "src/**/*.ts": ["prettier --write", "tslint --fix", "git add"]
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.ts": ["prettier --write", "git add"]
   },
   "keywords": [],
   "author": "",
