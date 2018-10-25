@@ -33,7 +33,8 @@ npm run dev
 
 This will monitor your changes and will automatically restart the server.
 
-The server will run on port 8080. You can change this by editing config file.
+The server will run on port 8080. 
+You can change this by editing config file.
 
 ## Type generation using gql codegen
 
