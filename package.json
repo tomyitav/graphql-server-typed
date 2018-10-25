@@ -25,7 +25,8 @@
     "tsc": "tsc",
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
     "prettier": "prettier --write \"src/**/*.ts\"",
-    "tslint-check": "tslint-config-prettier-check ./tslint.json"
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
+    "alon": "tslint --fix -c tslint.json 'src/**/*.ts' && prettier --write \"src/**/*.ts\""
   },
   "husky": {
     "hooks": {
@@ -33,7 +34,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["npm run tslint && npm run prettier", "git add"]
+    "*.ts": ["npm run alon", "git add"]
   },
   "keywords": [],
   "author": "",
