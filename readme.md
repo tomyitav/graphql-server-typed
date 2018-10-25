@@ -22,11 +22,19 @@ npm install
 ## Starting the server
 
 ```
-npm run build:dev
 npm start
 ```
 
-The server will run on port 8080. You can change this by editing config file.
+#### Additional options
+
+```
+npm run dev
+```
+
+This will monitor your changes and will automatically restart the server.
+
+The server will run on port 8080. 
+You can change this by editing config file.
 
 ## Type generation using gql codegen
 
@@ -72,7 +80,7 @@ is updated automatically.
 ## Run server in production with Docker
 
 ```
-npm run build
+npm run build:docker
 ```
 
 After npm building the project, go to project root directory, open shell and run:
