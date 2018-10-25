@@ -33,7 +33,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["prettier && tslint", "git add"]
+    "*.ts": ["prettier --write", "git add"]
   },
   "keywords": [],
   "author": "",
