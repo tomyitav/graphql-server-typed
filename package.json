@@ -25,7 +25,7 @@
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "precommit": "tslint --fix -c tslint.json 'src/**/*.ts' && prettier --write \"src/**/*.ts\""
+    "precommit": "npm run tslint && npm run prettier"
   },
   "husky": {
     "hooks": {
