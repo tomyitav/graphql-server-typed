@@ -16,7 +16,6 @@ type Mutation {
 type Subscription {
   carChanged: Car
 }
-
 `;
 
 export default schema;

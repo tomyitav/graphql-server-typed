@@ -1,7 +1,8 @@
-import {PubsubTopics} from "./PubsubTopics";
-const Topics: PubsubTopics = {
-    CAR_CHANGED_TOPIC: "car_changed",
-    TRAIN_CHANGED_TOPIC: "train_changed"
-}
+import {IPubsubTopics} from './IPubsubTopics';
 
-export default Topics
+const TOPICS: IPubsubTopics = {
+	CAR_CHANGED_TOPIC: 'car_changed',
+	TRAIN_CHANGED_TOPIC: 'train_changed'
+};
+
+export default TOPICS;

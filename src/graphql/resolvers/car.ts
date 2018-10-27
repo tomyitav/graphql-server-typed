@@ -1,30 +1,33 @@
-import {CarQueryArgs, Car, UpdateCarNameMutationArgs} from "../../interfaces/types";
-import {AbstractCarsModel} from "../../model/cars/AbstractCarsModel";
-import {AppContext} from "../../interfaces/AppContext";
-import Topics from "../subscriptions/Topics/PubsubTopicsImpl";
+import {IAppContext} from '../../interfaces/IAppContext';
+import {Car, CarQueryArgs, UpdateCarNameMutationArgs} from '../../interfaces/types';
+import {AbstractCarsModel} from '../../model/cars/AbstractCarsModel';
+import TOPICS from '../subscriptions/Topics/PubsubTopicsImpl';
 
-const CAR_CHANGED_TOPIC = Topics.CAR_CHANGED_TOPIC;
+const CAR_CHANGED_TOPIC = TOPICS.CAR_CHANGED_TOPIC;
 
 const resolveFunctions = {
-    Query: {
-        car (_, args: CarQueryArgs, context: AppContext) : Promise<Array<Car>>{
-            const carsModel: AbstractCarsModel = context.carsModel;
-            return carsModel.getCars(args.name);
-        }
-    },
+	Query: {
+		car(_, args: CarQueryArgs, context: IAppContext): Promise<Car[]> {
+			const carsModel: AbstractCarsModel = context.carsModel;
 
-    Mutation: {
-        updateCarName(_, args: UpdateCarNameMutationArgs, context: AppContext): Promise<Car> {
-            const carsModel: AbstractCarsModel = context.carsModel;
-            return carsModel.updateCarName(args._id, args.newName);
-        }
-    },
+			return carsModel.getCars(args.name);
+		}
+	},
 
-    Subscription: {
-        carChanged: {
-            subscribe: (_, args, context: AppContext) => context.pubsubManager.getPubSub().asyncIterator(CAR_CHANGED_TOPIC),
-        },
-    },
-}
+	Mutation: {
+		updateCarName(_, args: UpdateCarNameMutationArgs, context: IAppContext): Promise<Car> {
+			const carsModel: AbstractCarsModel = context.carsModel;
+
+			return carsModel.updateCarName(args._id, args.newName);
+		}
+	},
+
+	Subscription: {
+		carChanged: {
+			subscribe: (_, args, context: IAppContext) =>
+				context.pubsubManager.getPubSub().asyncIterator(CAR_CHANGED_TOPIC)
+		}
+	}
+};
 
 export default resolveFunctions;

@@ -33,8 +33,28 @@ npm run dev
 
 This will monitor your changes and will automatically restart the server.
 
-The server will run on port 8080. 
-You can change this by editing config file.
+The server will run on port 8080. </br>
+You can change this by editing the config file.
+
+## Code Formatting
+
+We use Prettier and Tslint to format and enforce standards on our code. </br>
+Both will run on the project automatically before each commit. </br>
+
+Prettier rewrites code according to the .prettierrc.json configuration file. </br>
+If you want to activate prettier manually without commiting run: </br>
+
+```
+npm run prettier
+```
+
+Tslint will check rules found in the tslint.json configuration file. <br/>
+If you want to check tslint manually run: </br>
+
+```
+npm run tslint
+```
+
 
 ## Type generation using gql codegen
 

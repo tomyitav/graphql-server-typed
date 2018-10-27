@@ -1,5 +1,5 @@
-import {IConfig} from "./IConfig";
+import {IConfig} from './IConfig';
 
 export abstract class AbstractSetting {
-    public abstract get config(): IConfig;
+	public abstract get config(): IConfig;
 }

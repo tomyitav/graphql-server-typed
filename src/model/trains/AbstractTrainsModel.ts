@@ -1,5 +1,5 @@
-import {Train} from "../../interfaces/types";
+import {Train} from '../../interfaces/types';
 
 export abstract class AbstractTrainsModel {
-    public abstract getTrains(name?: string) : Array<Train>;
+	public abstract getTrains(name?: string): Train[];
 }
