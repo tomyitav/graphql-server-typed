@@ -45,14 +45,12 @@ export class Server {
 		this.apolloServer.installSubscriptionHandlers(httpServer);
 
 		httpServer.listen({port: this.port}, () => {
+			this.logger.info(`Server is ready at http://localhost:${this.port}${this.apolloServer.graphqlPath}`);
 			this.logger.info(
-				`🚀 Server is ready at http://localhost:${this.port}${this.apolloServer.graphqlPath}`
+				`Playground is ready at http://localhost:${this.port}${this.apolloServer.graphqlPath}`
 			);
 			this.logger.info(
-				`🚀 Playground is ready at http://localhost:${this.port}${this.apolloServer.graphqlPath}`
-			);
-			this.logger.info(
-				`🚀 Subscriptions is ready at ws://localhost:${this.port}${this.apolloServer.subscriptionsPath}`
+				`Subscriptions is ready at ws://localhost:${this.port}${this.apolloServer.subscriptionsPath}`
 			);
 		});
 	}
