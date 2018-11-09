@@ -55,7 +55,6 @@
     "lodash": "^4.17.11",
     "merge-graphql-schemas": "^1.5.7",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.5.12",
     "subscriptions-transport-ws": "^0.9.15",
     "winston": "^2.4.4",
     "winston-daily-rotate-file": "^1.4.6",
