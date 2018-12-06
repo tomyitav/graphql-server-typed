@@ -90,25 +90,21 @@ merge-graphql-schemas:
   });
 
   export default schema;
-
 ```
 
 So as your project grows - you can extend the schema by adding new type in types
 directory, and adding matching resolver file in resolvers directory. The schema
 is updated automatically.
 
-## Run server in production with Docker
+## Deploy server to production :rocket:
+First, make sure you have [now-cli](https://zeit.co/now) installed.
+Then, execute the following command:
 
 ```
-npm run build:docker
+npm run deploy
 ```
 
-After npm building the project, go to project root directory, open shell and run:
-```
-docker build -t graphql-server .
-```
-
-Instructions about running the container are available [here](https://hub.docker.com/r/tomyitav/graphql-server-typed/)
+That's it! The server will be deployed on *now*
 
 ## Run server as AWS lambda
 
@@ -117,4 +113,3 @@ See the following [project](https://github.com/tomyitav/apollo-typed-lambda) for
 ## Connect to the server from client app
 
 See the following [example](https://github.com/tomyitav/apollo-angular-client-starter) on how to connect to the server using apollo-angular.
-
