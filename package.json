@@ -11,8 +11,8 @@
     "clean": "rimraf dist",
     "prebuild:dev": "npm run clean && npm run generate:dev",
     "build:dev": "npm run tsc:dev",
-    "serve": "node dist/main.js",
-    "start": "ts-node src/main.ts",
+    "start": "node dist/main.js",
+    "start:dev": "ts-node src/main.ts",
     "dev": "nodemon",
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts",
@@ -26,7 +26,8 @@
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "precommit": "npm run tslint && npm run prettier"
+    "precommit": "npm run tslint && npm run prettier",
+    "deploy": "now"
   },
   "husky": {
     "hooks": {
@@ -55,7 +56,6 @@
     "lodash": "^4.17.11",
     "merge-graphql-schemas": "^1.5.7",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.5.12",
     "subscriptions-transport-ws": "^0.9.15",
     "winston": "^2.4.4",
     "winston-daily-rotate-file": "^1.4.6",
