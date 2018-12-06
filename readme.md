@@ -104,7 +104,7 @@ Then, execute the following command:
 npm run deploy
 ```
 
-That's it! The server will be deployed on ```now```
+That's it! The server will be deployed on *now*
 
 ## Run server as AWS lambda
 
