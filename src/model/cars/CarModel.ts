@@ -39,8 +39,9 @@ export class CarsModel extends AbstractCarsModel {
 				}
 			}
 
-			let a = 5123;
-			return a;
+			const 			ab		 = 5123123123;
+
+			return 					ab;
 
 			resolve({});
 		});
