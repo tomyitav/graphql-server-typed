@@ -23,8 +23,8 @@
     "prebuild": "npm run clean && npm run generate",
     "build": "npm run tsc",
     "tsc": "tsc",
-    "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
-    "prettier": "prettier --write \"src/**/*.ts\"",
+    "tslint": "tslint --fix -c tslint.json",
+    "prettier": "prettier --write",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "precommit": "npm run tslint && npm run prettier",
     "deploy": "now"
@@ -35,10 +35,10 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "npm run precommit",
-      "git add"
-    ]
+    "linters": {
+      "*.ts": ["npm run tslint", "npm run prettier", "git add"]
+    },
+    "concurrent": false
   },
   "keywords": [],
   "author": "",
