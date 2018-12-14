@@ -57,7 +57,7 @@
     "merge-graphql-schemas": "^1.5.7",
     "reflect-metadata": "^0.1.10",
     "subscriptions-transport-ws": "^0.9.15",
-    "winston": "^2.4.4",
+    "winston": "^3.0.0",
     "winston-daily-rotate-file": "^1.4.6",
     "zone.js": "^0.8.18"
   },
