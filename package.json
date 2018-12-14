@@ -69,7 +69,7 @@
     "@types/node": "7.0.22",
     "graphql-code-generator": "^0.12.5",
     "graphql-codegen-typescript-template": "^0.12.5",
-    "eslint": "4.0.0",
+    "eslint": "5.10.0",
     "eslint-config-airbnb-base": "11.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-promise": "3.5.0",
