@@ -38,8 +38,7 @@
   "lint-staged": {
     "linters": {
       "*.ts": ["npm run precommit-tslint", "npm run precommit-prettier", "git add"]
-    },
-    "concurrent": false
+    }
   },
   "keywords": [],
   "author": "",
