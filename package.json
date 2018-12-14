@@ -25,8 +25,9 @@
     "tsc": "tsc",
     "tslint": "tslint --fix -c tslint.json 'src/**/*.ts'",
     "prettier": "prettier --write \"src/**/*.ts\"",
+    "precommit-tslint": "tslint --fix -c tslint.json",
+    "precommit-prettier": "prettier --write",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "precommit": "npm run tslint && npm run prettier",
     "deploy": "now"
   },
   "husky": {
@@ -35,10 +36,9 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "npm run precommit",
-      "git add"
-    ]
+    "linters": {
+      "*.ts": ["npm run precommit-tslint", "npm run precommit-prettier", "git add"]
+    }
   },
   "keywords": [],
   "author": "",
