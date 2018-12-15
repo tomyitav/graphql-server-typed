@@ -3,10 +3,8 @@ import 'reflect-metadata';
 import 'zone.js';
 import {AbstractPubsubManager} from '../graphql/subscriptions/Pubsub/AbstractPubsubManager';
 import {PubsubManager} from '../graphql/subscriptions/Pubsub/PubsubManager';
-import {AbstractCarsModel} from '../model/cars/AbstractCarsModel';
-import {CarsModel} from '../model/cars/CarModel';
-import {AbstractTrainsModel} from '../model/trains/AbstractTrainsModel';
-import {TrainsModel} from '../model/trains/TrainsModel';
+import {CarsService} from '../services/cars/CarsService';
+import {TrainsService} from '../services/trains/TrainsService';
 import {Server} from '../server';
 import {AbstractSetting} from './config/AbstractSetting';
 import {Setting} from './config/Setting';
@@ -16,10 +14,10 @@ import {Logger} from './logger/Logger';
 const injector: Injector = ReflectiveInjector.resolveAndCreate([
 	{provide: AbstractLogger, useClass: Logger},
 	{provide: AbstractSetting, useClass: Setting},
-	{provide: AbstractCarsModel, useClass: CarsModel},
-	{provide: AbstractTrainsModel, useClass: TrainsModel},
 	{provide: AbstractPubsubManager, useClass: PubsubManager},
-	{provide: Server, useClass: Server}
+	Server,
+	CarsService,
+	TrainsService
 ]);
 
 export default injector;

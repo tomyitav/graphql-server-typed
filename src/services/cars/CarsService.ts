@@ -3,15 +3,12 @@ import {AbstractLogger} from '../../core/logger/AbstractLogger';
 import {AbstractPubsubManager} from '../../graphql/subscriptions/Pubsub/AbstractPubsubManager';
 import TOPICS from '../../graphql/subscriptions/Topics/PubsubTopicsImpl';
 import {Car} from '../../interfaces/types';
-import {AbstractCarsModel} from './AbstractCarsModel';
 
 @Injectable()
-export class CarsModel extends AbstractCarsModel {
+export class CarsService {
 	private carList: Car[] = [{_id: '1234', name: 'sampleCar1'}, {_id: '1244', name: 'sampleCar2'}];
 
-	constructor(private logger: AbstractLogger, private pubsubManager: AbstractPubsubManager) {
-		super();
-	}
+	constructor(private logger: AbstractLogger, private pubsubManager: AbstractPubsubManager) {}
 
 	public getCars(carName?: string): Promise<Car[]> {
 		this.logger.info('Returning all cars...');
