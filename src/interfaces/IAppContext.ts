@@ -1,9 +1,9 @@
 import {AbstractPubsubManager} from '../graphql/subscriptions/Pubsub/AbstractPubsubManager';
-import {AbstractCarsModel} from '../model/cars/AbstractCarsModel';
-import {AbstractTrainsModel} from '../model/trains/AbstractTrainsModel';
+import {CarsService} from '../services/cars/CarsService';
+import {TrainsService} from '../services/trains/TrainsService';
 
 export interface IAppContext {
-	carsModel: AbstractCarsModel;
-	trainsModel: AbstractTrainsModel;
 	pubsubManager: AbstractPubsubManager;
+	carsService: CarsService;
+	trainsService: TrainsService;
 }

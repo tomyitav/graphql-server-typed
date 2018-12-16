@@ -6,10 +6,8 @@ import {Injectable, Injector} from 'injection-js';
 import {AbstractSetting} from './core/config/AbstractSetting';
 import {AbstractLogger} from './core/logger/AbstractLogger';
 import schema from './graphql/schema/schema';
-import {AbstractPubsubManager} from './graphql/subscriptions/Pubsub/AbstractPubsubManager';
 import {IAppContext} from './interfaces/IAppContext';
-import {AbstractCarsModel} from './model/cars/AbstractCarsModel';
-import {AbstractTrainsModel} from './model/trains/AbstractTrainsModel';
+import {getContext} from './context';
 
 @Injectable()
 export class Server {
@@ -22,16 +20,8 @@ export class Server {
 		this.logger.info('starting graphql server...');
 		this.port = this.setting.config.server.port;
 		this.app = express().use('*', cors());
-		const context: IAppContext = this.getAppContext(injector);
+		const context: IAppContext = getContext(injector);
 		this.initServer(context);
-	}
-
-	private getAppContext(injector: Injector): IAppContext {
-		return {
-			carsModel: injector.get(AbstractCarsModel),
-			trainsModel: injector.get(AbstractTrainsModel),
-			pubsubManager: injector.get(AbstractPubsubManager)
-		};
 	}
 
 	private initServer(context: IAppContext) {

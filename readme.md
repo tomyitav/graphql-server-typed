@@ -19,21 +19,38 @@ git clone https://github.com/tomyitav/graphql-server-typed.git
 npm install
 ```
 
-## Starting the server
+## Build and start server instance
+
+#### Build command
+
+Running the command
+```
+npm run build:dev
+```
+
+will generate typescript types, and transpile code to *dist* folder
+
+#### How to start server instance after building
 
 ```
 npm start
 ```
 
-#### Additional options
+## Run server directly with ts-node
 
 ```
-npm run dev
+npm start:dev
+```
+
+#### Watch for code changes
+
+```
+npm run start:watch
 ```
 
 This will monitor your changes and will automatically restart the server.
 
-The server will run on port 8080. </br>
+The server will run on port 8080.
 You can change this by editing the config file.
 
 ## Code Formatting

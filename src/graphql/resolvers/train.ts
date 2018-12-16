@@ -1,13 +1,13 @@
 import {IAppContext} from '../../interfaces/IAppContext';
 import {Train, TrainQueryArgs} from '../../interfaces/types';
-import {AbstractTrainsModel} from '../../model/trains/AbstractTrainsModel';
+import {TrainsService} from '../../services/trains/TrainsService';
 
 const resolveFunctions = {
 	Query: {
 		train(_, args: TrainQueryArgs, context: IAppContext): Train[] {
-			const trainsModel: AbstractTrainsModel = context.trainsModel;
+			const trainsService: TrainsService = context.trainsService;
 
-			return trainsModel.getTrains(args.name);
+			return trainsService.getTrains(args.name);
 		}
 	}
 };
