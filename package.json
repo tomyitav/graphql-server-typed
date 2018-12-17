@@ -79,6 +79,6 @@
     "tslint-eslint-rules": "5.4.0",
     "tslint-react": "3.6.0",
     "typescript": "2.9.2",
-    "typescript-eslint-parser": "3.0.0"
+    "typescript-eslint-parser": "21.0.2"
   }
 }
