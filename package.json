@@ -70,7 +70,7 @@
     "graphql-code-generator": "0.12.6",
     "graphql-codegen-typescript-template": "0.12.6",
     "husky": "1.1.2",
-    "lint-staged": "7.3.0",
+    "lint-staged": "8.1.0",
     "nodemon": "1.18.4",
     "rimraf": "2.6.2",
     "ts-node": "7.0.1",
