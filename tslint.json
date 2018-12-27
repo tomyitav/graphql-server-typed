@@ -5,6 +5,8 @@
 	"rules": {
 		"newline-before-return": true,
 		"object-literal-sort-keys": false,
+		"no-submodule-imports": false,
+		"no-implicit-dependencies": false,
 		"variable-name": [true, "allow-leading-underscore"],
 		"ordered-imports": false
 	},
