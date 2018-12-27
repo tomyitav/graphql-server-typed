@@ -1,7 +1,7 @@
 import {Injector} from 'injection-js';
 import {IAppContext} from './interfaces/IAppContext';
-import {CarsService} from './services/cars/CarsService';
-import {TrainsService} from './services/trains/TrainsService';
+import {CarsService} from '@src/services/cars/CarsService';
+import {TrainsService} from '@src/services/trains/TrainsService';
 import {AbstractPubsubManager} from './graphql/subscriptions/Pubsub/AbstractPubsubManager';
 
 export function getContext(injector: Injector): IAppContext {
