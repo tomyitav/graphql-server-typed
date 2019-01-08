@@ -9,6 +9,6 @@ type Query {
   train(name: String): [Train]
 }
 
-`;
+`
 
-export default schema;
+export default schema
