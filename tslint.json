@@ -6,6 +6,7 @@
 		"newline-before-return": true,
 		"object-literal-sort-keys": false,
 		"no-submodule-imports": false,
+        "indent": [true, "spaces", 2],
 		"no-implicit-dependencies": false,
 		"variable-name": [true, "allow-leading-underscore"],
 		"ordered-imports": false
