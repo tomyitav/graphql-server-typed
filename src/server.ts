@@ -18,7 +18,7 @@ export class Server {
 
   public startServer(injector: Injector) {
     this.logger.info('starting graphql server...')
-    this.port = this.setting.config.server.port
+    this.port = parseInt(this.setting.config.server.port, 10)
     this.app = express().use('*', cors())
     const context: IAppContext = getContext(injector)
     this.initServer(context)

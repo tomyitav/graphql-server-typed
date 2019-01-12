@@ -15,8 +15,7 @@ export class Setting extends AbstractSetting {
         filename: 'log.txt'
       },
       server: {
-        port: process.env.serverPort || 8080,
-        wsPort: process.env.serverWsPort || 8090
+        port: process.env.serverPort || '8080'
       }
     }
   }

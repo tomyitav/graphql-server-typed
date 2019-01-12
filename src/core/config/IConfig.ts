@@ -4,8 +4,7 @@ export interface IConfig {
 }
 
 interface IServerConfig {
-  port: number
-  wsPort: number
+  port: string
 }
 
 interface ILoggerConfig {
