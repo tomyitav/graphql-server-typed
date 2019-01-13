@@ -4,6 +4,7 @@ import * as winston from 'winston'
 import * as DailyRotate from 'winston-daily-rotate-file'
 import {AbstractSetting} from '../config/AbstractSetting'
 import {AbstractLogger} from './AbstractLogger'
+const format = winston.format
 
 @Injectable()
 export class Logger extends AbstractLogger {
@@ -30,8 +31,11 @@ export class Logger extends AbstractLogger {
   private initializeLogger() {
     this.logger = winston.createLogger({
       level: 'info',
+      format: winston.format.json(),
       transports: [
-        new winston.transports.Console(),
+        new winston.transports.Console({
+          format: format.combine(format.colorize(), format.simple())
+        }),
         new DailyRotate({
           filename: this.settings.config.log.filename,
           dirname: this.settings.config.log.filedir,
