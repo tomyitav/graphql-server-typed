@@ -63,7 +63,7 @@
     "reflect-metadata": "0.1.10",
     "subscriptions-transport-ws": "0.9.15",
     "winston": "3.1.0",
-    "winston-daily-rotate-file": "3.5.2",
+    "winston-daily-rotate-file": "3.6.0",
     "module-alias": "2.1.0",
     "zone.js": "0.8.27"
   },
