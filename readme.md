@@ -25,7 +25,12 @@ npm install
 
 Running the command
 ```
-npm run build:dev
+npm run build
+```
+
+Or on windows machine, run
+```
+npm run build:win
 ```
 
 will generate typescript types, and transpile code to *dist* folder
