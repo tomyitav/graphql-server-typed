@@ -65,7 +65,7 @@
     "subscriptions-transport-ws": "0.9.15",
     "winston": "3.1.0",
     "winston-daily-rotate-file": "3.6.0",
-    "zone.js": "0.8.27"
+    "zone.js": "0.8.28"
   },
   "devDependencies": {
     "@types/express": "4.16.0",
