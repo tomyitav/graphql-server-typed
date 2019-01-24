@@ -57,7 +57,7 @@
     "express": "4.16.4",
     "graphql": "14.1.1",
     "graphql-subscriptions": "1.0.0",
-    "graphql-tools": "4.0.3",
+    "graphql-tools": "4.0.4",
     "injection-js": "2.2.1",
     "merge-graphql-schemas": "1.5.8",
     "module-alias": "2.1.0",
