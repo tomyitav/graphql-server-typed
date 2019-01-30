@@ -7,7 +7,8 @@
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
 [renovate-app]: https://renovateapp.com/
 
-Boilerplate project for [generate-graphql-app](https://github.com/tomyitav/generate-graphql-app) cli
+Boilerplate project for [generate-graphql-app](https://github.com/tomyitav/generate-graphql-app) cli.
+
 Create a fully configured, production ready graphql server, using
 
 + typescript
