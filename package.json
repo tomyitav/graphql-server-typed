@@ -51,7 +51,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "2.3.3",
+    "apollo-server-express": "2.4.0",
     "core-js": "2.6.4",
     "cors": "2.8.5",
     "express": "4.16.4",
