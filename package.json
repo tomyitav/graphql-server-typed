@@ -52,7 +52,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "2.4.0",
-    "core-js": "2.6.4",
+    "core-js": "2.6.5",
     "cors": "2.8.5",
     "express": "4.16.4",
     "graphql": "14.1.1",
