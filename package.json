@@ -62,7 +62,7 @@
     "merge-graphql-schemas": "1.5.8",
     "module-alias": "2.2.0",
     "reflect-metadata": "0.1.13",
-    "subscriptions-transport-ws": "0.9.15",
+    "subscriptions-transport-ws": "0.9.16",
     "winston": "3.2.1",
     "winston-daily-rotate-file": "3.8.0",
     "zone.js": "0.8.29"
