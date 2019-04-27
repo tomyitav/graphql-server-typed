@@ -5,7 +5,5 @@ overwrite: true
 generates:
   ./src/interfaces/types.d.ts:
     plugins:
-    - "typescript-common"
-    - "typescript-client"
-    - "typescript-server"
+    - "typescript"
 require: []
