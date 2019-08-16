@@ -58,7 +58,7 @@
     "graphql": "14.3.1",
     "graphql-subscriptions": "1.1.0",
     "graphql-tools": "4.0.5",
-    "injection-js": "2.2.1",
+    "injection-js": "2.2.2",
     "merge-graphql-schemas": "1.5.8",
     "module-alias": "2.2.0",
     "reflect-metadata": "0.1.13",
