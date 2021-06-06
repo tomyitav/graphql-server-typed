@@ -68,7 +68,7 @@
     "zone.js": "0.9.1"
   },
   "devDependencies": {
-    "@types/express": "4.17.0",
+    "@types/express": "4.17.12",
     "@types/graphql": "14.2.0",
     "@types/node": "12.0.12",
     "@graphql-codegen/cli": "1.2.1",
